@@ -1,0 +1,66 @@
+.gradle
+/build/
+
+.DS_Store
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.tomcat-instance
+tomcat-instance/
+logs/
+build/
+bin/
+.lock.db
+
+
+
+### IntelliJ IDEA ###
+**/.idea
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+nbproject/private/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+.metadata/
+
+### Etc ###
+RemoteSystemsTempFiles
+null
+
+### Terraform ###
+**/.terraform/
+**/.terraform
+**/.terraform/providers/
+**/*.tfstate
+**/*.tfstate.backup
+**/*terraform.lock.hcl
+
+### Additional Library ###
+/lib/
+
+### Serverless ###
+**/.serverless/
+**/.serverless/**
+**/node_modules/
+**/node_modules/**
+**/*package-lock.json
+
+### Build Source Output ###
+**/build/
+**/build/**
+**/out/
+**/out/**
+
+### Local properties ###
+**/**-local.**
