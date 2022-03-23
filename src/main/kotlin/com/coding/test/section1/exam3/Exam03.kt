@@ -23,11 +23,12 @@ study
 
  */
 class Exam03 {
+
     companion object {
         private const val SPACE_DELIMITER = " "
     }
-    fun solution(input: String): String {
 
+    fun solution(input: String): String {
         return input
             .split(SPACE_DELIMITER)
             .reduce { acc, s ->
@@ -37,7 +38,7 @@ class Exam03 {
             }
 
 
-//        var initValue = 0
+//        var initValue = Int.MIN_VALUE
 //        var result = ""
 //        input
 //            .splitToSequence(SPACE_DELIMITER)
@@ -53,8 +54,7 @@ class Exam03 {
 }
 
 fun main() {
-    val sc = Scanner(System.`in`)
-    val input = sc.nextLine()
+    val input = readln()
 
     val exam03 = Exam03()
     val result = exam03.solution(input)
