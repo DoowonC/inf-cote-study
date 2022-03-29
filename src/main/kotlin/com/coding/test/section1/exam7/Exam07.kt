@@ -30,7 +30,8 @@ class Exam07 {
         while (startPoint < checkPoint) {
             if (charArray[startPoint].equals(charArray[lastPoint], ignoreCase = true)) {
                 result = true
-            }
+            } else return false
+
             startPoint++
             lastPoint--
         }
