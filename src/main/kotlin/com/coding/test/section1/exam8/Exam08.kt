@@ -27,7 +27,7 @@ class Exam08 {
     }
 
     private fun String.remainOnlyChar() =
-        this.toCharArray().asSequence().filter { c -> c.isLetter() }.toList().joinToString("")
+        this.asSequence().filter { c -> c.isLetter() }.joinToString("")
 }
 
 
