@@ -22,13 +22,20 @@ K2HS7E
 class Exam11 {
     fun solution(input: String): String {
         val sb = StringBuilder()
-        val temp = input.plus(" ") //
         var cnt = 1
-        for (i in 0..temp.length - 2) {
-            if (temp[i].equals(temp[i + 1], true)) {
+        val lastIdx = input.length - 1
+
+        for (i in 0..lastIdx) {
+            if (i == lastIdx) {
+                if (input[i].equals(input[i - 1], true)) sb.append(cnt)
+                else sb.append(input[lastIdx])
+                break
+            }
+
+            if (input[i].equals(input[i + 1], true)) {
                 cnt++
             } else {
-                sb.append(temp[i])
+                sb.append(input[i])
                 if (cnt > 1) sb.append(cnt)
                 cnt = 1
             }
