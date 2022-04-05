@@ -1,8 +1,5 @@
 package com.coding.test.section1.exam12
 
-import java.util.*
-
-
 /*
 설명
 현수는 영희에게 알파벳 대문자로 구성된 비밀편지를 매일 컴퓨터를 이용해 보냅니다.
@@ -28,25 +25,53 @@ import java.util.*
 입력
 첫 줄에는 보낸 문자의 개수(10을 넘지 안습니다)가 입력된다. 다음 줄에는 문자의 개수의 일곱 배 만큼의 #또는 * 신호가 입력됩니다.
 현수는 항상 대문자로 해석할 수 있는 신호를 보낸다고 가정합니다.
+4
+#****###**#####**#####**##**
 
 출력
 영희가 해석한 문자열을 출력합니다.
+COOL
 
  */
 class Exam12 {
+    companion object {
+        private const val NUMBER_SEVEN = 7
+    }
+
     fun solution(count: Int, encrypted: String): String {
-        println("count: $count")
-        println("encrypted: $encrypted")
-        return ""
+        val sb = StringBuilder()
+        for (i in 0 until count) {
+            val encryptedString =
+                encrypted.substring(
+                    startIndex = if (i > 0) i * NUMBER_SEVEN else 0,
+                    endIndex = (i + 1) * NUMBER_SEVEN
+                )
+            val asciiNumber = decryptToNumber(encryptedString)
+            sb.append(asciiNumber.toChar())
+        }
+        return sb.toString()
+    }
+
+    private fun decryptToNumber(encrypted: String): Int {
+        return encrypted
+            .asSequence()
+            .map { c ->
+                when (c) {
+                    '#' -> 1
+                    '*' -> 0
+                    else -> IllegalArgumentException("not support character")
+                }
+            }
+            .joinToString("")
+            .toInt(2)
     }
 }
 
 fun main() {
-    val sc = Scanner(System.`in`)
-    val cnt = sc.nextLine()
-    val encrypted = sc.nextLine()
-
     val exam12 = Exam12()
-    val result = exam12.solution(cnt.toInt(), encrypted)
+    val cnt = readln().toInt()
+    val encrypted = readln()
+
+    val result = exam12.solution(cnt, encrypted)
     println(result)
 }
