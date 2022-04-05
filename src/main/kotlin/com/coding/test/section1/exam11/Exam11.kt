@@ -27,12 +27,12 @@ class Exam11 {
 
         for (i in 0..lastIdx) {
             if (i == lastIdx) {
-                if (input[i].equals(input[i - 1], true)) sb.append(cnt)
+                if (cnt > 1) sb.append(cnt)
                 else sb.append(input[lastIdx])
                 break
             }
 
-            if (input[i].equals(input[i + 1], true)) {
+            if (input[i] == input[i + 1]) {
                 cnt++
             } else {
                 sb.append(input[i])
@@ -49,6 +49,6 @@ fun main() {
     val exam11 = Exam11()
     val input = readln()
 
-    val result: String = exam11.solution(input)
+    val result: String = exam11.solution(input.uppercase())
     println(result)
 }
