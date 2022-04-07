@@ -17,18 +17,16 @@ package com.coding.test.section2.exam2
 
  */
 class Exam02 {
-    fun solution(studentsLengthList: IntArray): Int {
+    fun solution(studentsHeightList: IntArray): Int {
         var cnt = 0
-        var tallest = studentsLengthList[0]
-        studentsLengthList.forEachIndexed { index, i ->
+        var tallest = studentsHeightList[0]
+        studentsHeightList.forEachIndexed { index, eachHeight ->
             if (index == 0) cnt++
-
-            if (studentsLengthList[index] > tallest) {
-                tallest = studentsLengthList[index]
+            if (eachHeight > tallest) {
+                tallest = eachHeight
                 cnt++
             }
         }
-
         return cnt
     }
 }
@@ -37,12 +35,11 @@ fun main() {
     val exam02 = Exam02()
 
     val cnt = readln().toInt()
-    val studentsLengthList = IntArray(cnt)
+    val studentsHeightList = IntArray(cnt)
     for (i in 0 until cnt) {
-        studentsLengthList[i] = readln().toInt()
+        studentsHeightList[i] = readln().toInt()
     }
 
-    val visibleCnt = exam02.solution(studentsLengthList)
+    val visibleCnt = exam02.solution(studentsHeightList)
     println(visibleCnt)
-
 }
